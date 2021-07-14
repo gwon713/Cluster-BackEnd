@@ -3,3 +3,6 @@
 
 초기 기획 레이아웃
 https://ovenapp.io/project/8apxcKb9oQnChSnJm0fQiDESn9QpOJzx#s407W
+
+API 설계 
+https://gwon713.gitbook.io/cluster/
