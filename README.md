@@ -11,4 +11,4 @@ DB 설계
 ![cluser_db_image](./readme_resource/cluster_db.png)
 
 API 설계 
-https://gwon713.gitbook.io/cluster/
+https://cluster-1.gitbook.io/cluster/
