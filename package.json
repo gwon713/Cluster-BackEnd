@@ -1,0 +1,19 @@
+{
+  "name": "cluster-sideproj",
+  "version": "1.0.0",
+  "description": "개발자 커뮤니티 클러스터 (Side Project)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwon713/Cluster-SideProj.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gwon713/Cluster-SideProj/issues"
+  },
+  "homepage": "https://github.com/gwon713/Cluster-SideProj#readme"
+}
