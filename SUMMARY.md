@@ -1,9 +1,10 @@
 # Table of contents
 
-* [Login](README.md)
+* [Index](README.md)
 
 ## API\_docs
 
+* [Login](api_docs/login.md)
 * [SignUp](api_docs/signup.md)
 * [Profile](api_docs/profile.md)
 * [Group](api_docs/group.md)
