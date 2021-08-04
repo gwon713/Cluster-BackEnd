@@ -8,7 +8,10 @@
   "description": "개발자 커뮤니티 클러스터 (Side Project)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build" : "tsc",
+    "build:watch" : "tsc -w",
+    "dev" : "ts-node-dev --respawn --transpile-only src/index.ts NODE_ENV=dev",
+    "start:dev" : "nodemon --watch src --delay 500ms --exec 'ts-node' src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/gwon713/Cluster-SideProj/issues"
   },
-  "homepage": "https://github.com/gwon713/Cluster-SideProj#readme"
+  "homepage": "https://github.com/gwon713/Cluster-SideProj#readme",
+  "devDependencies": {
+    "mocha": "^9.0.3",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.4",
+    "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
 }
