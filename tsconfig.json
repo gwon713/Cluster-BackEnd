@@ -3,7 +3,7 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "lib": ["DOM","es5","es6"],                    
-    "target": "ES5",                               
+    "target": "ES6",                               
     "module": "commonjs",                          
     "strict": true,                             
     "moduleResolution": "node",
