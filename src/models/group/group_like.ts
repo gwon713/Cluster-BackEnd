@@ -1,3 +1,4 @@
+import logger from '../../config/logger';
 class GroupLike {
     private seq : number;
     private user_seq : number;
@@ -34,7 +35,7 @@ class GroupLike {
     }
 
     printInfoGroup = (): void => {
-        console.log({
+        logger.info({
             group_liked_seq : this.seq,
             user_seq : this.user_seq,
             group_seq : this.group_seq

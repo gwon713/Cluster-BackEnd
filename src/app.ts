@@ -1,4 +1,6 @@
 import express, {Request, Response} from "express";
+import { connection } from "./config/database";
+import logger from './config/logger';
 
 export class App{
     public app;
@@ -15,8 +17,13 @@ export class App{
                 res.status(200).send('hello ts express!');
             })
         } catch(err){
-            console.log(err);
+            logger.info(err);
         }
+    }
+    private setDB() : void {
+        connection.on('error', (req, res) => {
+            
+        });
     }
     private setMiddleware() : void {
         this.app.use(express.json());

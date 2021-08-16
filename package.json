@@ -26,6 +26,7 @@
   "homepage": "https://github.com/gwon713/Cluster-SideProj#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
     "@types/node": "^16.4.12",
     "@types/pg": "^8.6.1",

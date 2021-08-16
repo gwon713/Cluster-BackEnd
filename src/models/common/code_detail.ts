@@ -1,3 +1,4 @@
+import logger from '../../config/logger';
 class Code_detail{
     private code_id : string;
     private code_detail_id : string;
@@ -61,7 +62,7 @@ class Code_detail{
     }
 
     printInfoCode_detail = () : void => {
-        console.log({
+        logger.info({
             code_id : this.code_id,
             code_detail_id : this.code_detail_id,
             code_detail_name : this.code_detail_name,

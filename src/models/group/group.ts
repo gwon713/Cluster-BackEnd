@@ -1,3 +1,4 @@
+import logger from '../../config/logger';
 class Group{
     private seq : number;
     private user_seq : number;
@@ -182,7 +183,7 @@ class Group{
     }
 
     printInfoGroup = (): void => {
-        console.log({
+        logger.info({
             group_seq : this.seq,
             user_seq : this.user_seq,
             group_name : this.name,

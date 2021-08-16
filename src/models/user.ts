@@ -1,3 +1,4 @@
+import logger from '../config/logger';
 class User {
     private seq : number;
     private email : string;
@@ -116,7 +117,7 @@ class User {
     }
 
     printInfoUser = (): void => {
-        console.log({
+        logger.info({
             user_seq : this.seq,
             user_email : this.email,
             user_nickname : this.nickname,
