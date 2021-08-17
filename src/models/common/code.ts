@@ -1,14 +1,14 @@
 import logger from '../../config/logger';
 class Code{
-    private code_id : string;
-    private code_name : string;
-    private code_etc : string;
+    private code_id : String;
+    private code_name : String;
+    private code_etc : String;
     private use_at : Boolean;
 
     constructor(
-        code_id: string, 
-        code_name: string, 
-        code_etc: string, 
+        code_id: String, 
+        code_name: String, 
+        code_etc: String, 
         use_at: Boolean
     ) 
     {
@@ -18,27 +18,27 @@ class Code{
         this.use_at = use_at
     }
 
-    public getCode_id(): string {
+    public getCode_id(): String {
         return this.code_id;
     }
 
-    public setCode_id(code_id: string): void {
+    public setCode_id(code_id: String): void {
         this.code_id = code_id;
     }
 
-    public getCode_name(): string {
+    public getCode_name(): String {
         return this.code_name;
     }
 
-    public setCode_name(code_name: string): void {
+    public setCode_name(code_name: String): void {
         this.code_name = code_name;
     }
 
-    public getCode_etc(): string {
+    public getCode_etc(): String {
         return this.code_etc;
     }
 
-    public setCode_etc(code_etc: string): void {
+    public setCode_etc(code_etc: String): void {
         this.code_etc = code_etc;
     }
 

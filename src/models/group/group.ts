@@ -1,38 +1,38 @@
 import logger from '../../config/logger';
 class Group{
-    private seq : number;
-    private user_seq : number;
-    private name : string;
-    private kind : string;
+    private seq : Number;
+    private user_seq : Number;
+    private name : String;
+    private kind : String;
     private status : Boolean;
-    private liked : number;
-    private start_date : string;
-    private place : string;
-    private chat_link : string;
-    private total_user : number;
-    private join_user : number;
-    private about : string;
+    private liked : Number;
+    private start_date : String;
+    private place : String;
+    private chat_link : String;
+    private total_user : Number;
+    private join_user : Number;
+    private about : String;
     private hashtag : Object;
-    private edit_time : string;
-    private create_time : string;
+    private edit_time : String;
+    private create_time : String;
     private deleted : Boolean;
 
     constructor(
-        seq: number, 
-        user_seq: number, 
-        name: string, 
-        kind: string, 
+        seq: Number, 
+        user_seq: Number, 
+        name: String, 
+        kind: String, 
         status: Boolean, 
-        liked: number, 
-        start_date: string, 
-        place: string, 
-        chat_link: string, 
-        total_user: number, 
-        join_user: number, 
-        about: string, 
+        liked: Number, 
+        start_date: String, 
+        place: String, 
+        chat_link: String, 
+        total_user: Number, 
+        join_user: Number, 
+        about: String, 
         hashtag: Object, 
-        edit_time: string, 
-        create_time: string, 
+        edit_time: String, 
+        create_time: String, 
         deleted: Boolean
     )   
     {
@@ -54,35 +54,35 @@ class Group{
         this.deleted = deleted
     }
 
-    public getSeq(): number {
+    public getSeq(): Number {
         return this.seq;
     }
 
-    public setSeq(seq: number): void {
+    public setSeq(seq: Number): void {
         this.seq = seq;
     }
 
-    public getUser_seq(): number {
+    public getUser_seq(): Number {
         return this.user_seq;
     }
 
-    public setUser_seq(user_seq: number): void {
+    public setUser_seq(user_seq: Number): void {
         this.user_seq = user_seq;
     }
 
-    public getName(): string {
+    public getName(): String {
         return this.name;
     }
 
-    public setName(name: string): void {
+    public setName(name: String): void {
         this.name = name;
     }
 
-    public getKind(): string {
+    public getKind(): String {
         return this.kind;
     }
 
-    public setKind(kind: string): void {
+    public setKind(kind: String): void {
         this.kind = kind;
     }
 
@@ -94,59 +94,59 @@ class Group{
         this.status = status;
     }
 
-    public getLiked(): number {
+    public getLiked(): Number {
         return this.liked;
     }
 
-    public setLiked(liked: number): void {
+    public setLiked(liked: Number): void {
         this.liked = liked;
     }
 
-    public getStart_date(): string {
+    public getStart_date(): String {
         return this.start_date;
     }
 
-    public setStart_date(start_date: string): void {
+    public setStart_date(start_date: String): void {
         this.start_date = start_date;
     }
 
-    public getPlace(): string {
+    public getPlace(): String {
         return this.place;
     }
 
-    public setPlace(place: string): void {
+    public setPlace(place: String): void {
         this.place = place;
     }
 
-    public getChat_link(): string {
+    public getChat_link(): String {
         return this.chat_link;
     }
 
-    public setChat_link(chat_link: string): void {
+    public setChat_link(chat_link: String): void {
         this.chat_link = chat_link;
     }
 
-    public getTotal_user(): number {
+    public getTotal_user(): Number {
         return this.total_user;
     }
 
-    public setTotal_user(total_user: number): void {
+    public setTotal_user(total_user: Number): void {
         this.total_user = total_user;
     }
 
-    public getJoin_user(): number {
+    public getJoin_user(): Number {
         return this.join_user;
     }
 
-    public setJoin_user(join_user: number): void {
+    public setJoin_user(join_user: Number): void {
         this.join_user = join_user;
     }
 
-    public getAbout(): string {
+    public getAbout(): String {
         return this.about;
     }
 
-    public setAbout(about: string): void {
+    public setAbout(about: String): void {
         this.about = about;
     }
 
@@ -158,19 +158,19 @@ class Group{
         this.hashtag = hashtag;
     }
 
-    public getEdit_time(): string {
+    public getEdit_time(): String {
         return this.edit_time;
     }
 
-    public setEdit_time(edit_time: string): void {
+    public setEdit_time(edit_time: String): void {
         this.edit_time = edit_time;
     }
 
-    public getCreate_time(): string {
+    public getCreate_time(): String {
         return this.create_time;
     }
 
-    public setCreate_time(create_time: string): void {
+    public setCreate_time(create_time: String): void {
         this.create_time = create_time;
     }
 

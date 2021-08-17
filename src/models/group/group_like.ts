@@ -1,36 +1,36 @@
 import logger from '../../config/logger';
 class GroupLike {
-    private seq : number;
-    private user_seq : number;
-    private group_seq : number;
+    private seq : Number;
+    private user_seq : Number;
+    private group_seq : Number;
 
-    constructor(seq: number, user_seq: number, group_seq: number) {
+    constructor(seq: Number, user_seq: Number, group_seq: Number) {
         this.seq = seq
         this.user_seq = user_seq
         this.group_seq = group_seq
     }
 
-    public getSeq(): number {
+    public getSeq(): Number {
         return this.seq;
     }
 
-    public setSeq(seq: number): void {
+    public setSeq(seq: Number): void {
         this.seq = seq;
     }
 
-    public getUser_seq(): number {
+    public getUser_seq(): Number {
         return this.user_seq;
     }
 
-    public setUser_seq(user_seq: number): void {
+    public setUser_seq(user_seq: Number): void {
         this.user_seq = user_seq;
     }
 
-    public getGroup_seq(): number {
+    public getGroup_seq(): Number {
         return this.group_seq;
     }
 
-    public setGroup_seq(group_seq: number): void {
+    public setGroup_seq(group_seq: Number): void {
         this.group_seq = group_seq;
     }
 

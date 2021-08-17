@@ -1,26 +1,26 @@
 import logger from '../config/logger';
 class User {
-    private seq : number;
-    private email : string;
-    private nickname : string;
-    private token : string;
-    private social : string;
-    private file : string;
-    private login_time : string;
-    private edit_time : string;
-    private join_time : string;
+    private seq : Number;
+    private email : String;
+    private nickname : String;
+    private token : String;
+    private social : String;
+    private file : String;
+    private login_time : String;
+    private edit_time : String;
+    private join_time : String;
     private deleted : Boolean;
 
     constructor(
-        seq: number, 
-        email: string, 
-        nickname: string, 
-        token: string, 
-        social: string, 
-        file: string, 
-        login_time: string, 
-        edit_time: string, 
-        join_time: string, 
+        seq: Number, 
+        email: String, 
+        nickname: String, 
+        token: String, 
+        social: String, 
+        file: String, 
+        login_time: String, 
+        edit_time: String, 
+        join_time: String, 
         deleted: Boolean
     )
     {
@@ -36,75 +36,75 @@ class User {
         this.deleted = deleted
     }
 
-    public getSeq(): number {
+    public getSeq(): Number {
         return this.seq;
     }
 
-    public setSeq(seq: number): void {
+    public setSeq(seq: Number): void {
         this.seq = seq;
     }
 
-    public getEmail(): string {
+    public getEmail(): String {
         return this.email;
     }
 
-    public setEmail(email: string): void {
+    public setEmail(email: String): void {
         this.email = email;
     }
 
-    public getNickname(): string {
+    public getNickname(): String {
         return this.nickname;
     }
 
-    public setNickname(nickname: string): void {
+    public setNickname(nickname: String): void {
         this.nickname = nickname;
     }
 
-    public getToken(): string {
+    public getToken(): String {
         return this.token;
     }
 
-    public setToken(token: string): void {
+    public setToken(token: String): void {
         this.token = token;
     }
 
-    public getSocial(): string {
+    public getSocial(): String {
         return this.social;
     }
 
-    public setSocial(social: string): void {
+    public setSocial(social: String): void {
         this.social = social;
     }
 
-    public getFile(): string {
+    public getFile(): String {
         return this.file;
     }
 
-    public setFile(file: string): void {
+    public setFile(file: String): void {
         this.file = file;
     }
 
-    public getLogin_time(): string {
+    public getLogin_time(): String {
         return this.login_time;
     }
 
-    public setLogin_time(login_time: string): void {
+    public setLogin_time(login_time: String): void {
         this.login_time = login_time;
     }
 
-    public getEdit_time(): string {
+    public getEdit_time(): String {
         return this.edit_time;
     }
 
-    public setEdit_time(edit_time: string): void {
+    public setEdit_time(edit_time: String): void {
         this.edit_time = edit_time;
     }
 
-    public getJoin_time(): string {
+    public getJoin_time(): String {
         return this.join_time;
     }
 
-    public setJoin_time(join_time: string): void {
+    public setJoin_time(join_time: String): void {
         this.join_time = join_time;
     }
 
