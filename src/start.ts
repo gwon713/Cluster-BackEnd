@@ -6,6 +6,7 @@ try {
     const port : number = 3000;
 
     app.listen(port, () => {
+        logger.info(` NODE ENV = ${process.env.NODE_ENV} `)
         logger.info(`Server is running on port : ${port}`);
     });
 } catch(err) {

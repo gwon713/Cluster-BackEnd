@@ -17,7 +17,7 @@ export class App{
                 res.status(200).send('hello ts express!');
             })
         } catch(err){
-            logger.info(err);
+            logger.error(err);
         }
     }
     private setDB() : void {
