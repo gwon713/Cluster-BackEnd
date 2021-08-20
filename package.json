@@ -10,9 +10,9 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w",
-    "dev": "ts-node-dev --respawn --transpile-only src/start.ts NODE_ENV=dev",
+    "dev": "NODE_ENV=dev ts-node-dev --respawn --transpile-only src/start.ts",
     "start:dev": "nodemon --watch src --delay 500ms --exec ts-node src/start.ts",
-    "start": "node build/start.js"
+    "start": "NODE_ENV=production node build/start.js"
   },
   "repository": {
     "type": "git",
