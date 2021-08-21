@@ -2,9 +2,10 @@ import express from "express";
 import { connection } from "./config/database";
 import logger from './config/logger';
 import morganMiddleware from './config/morgan';
-import { ClassData_Group, ClassData_User, ClassData_GrouLike } from './config/dataMapping';
+import { ClassData_Group, ClassData_User, ClassData_GroupLike } from './config/dataMapping';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
+import { creat_jsonModel } from './models/jsonModel';
 
 export class App{
     public app;
@@ -25,9 +26,7 @@ export class App{
         }
     }
     private dataMap() : void {
-        ClassData_User();
-        ClassData_Group();
-        ClassData_GrouLike();
+        creat_jsonModel();
     }
     private setMiddleware() : void {
         this.app.use(express.json());

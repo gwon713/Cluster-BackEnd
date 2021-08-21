@@ -17,7 +17,7 @@ export const ClassData_Group = (): Group[]=>{
     return GroupData;
 }
 
-export const ClassData_GrouLike = (): GroupLike[]=>{
+export const ClassData_GroupLike = (): GroupLike[]=>{
     let GroupLikeData : GroupLike[] = []; 
 
     return GroupLikeData;
