@@ -1,5 +1,5 @@
 import logger from '../config/logger';
-class User {
+export class User {
     private seq : Number;
     private email : String;
     private nickname : String;

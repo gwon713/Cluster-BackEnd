@@ -1,5 +1,5 @@
 import logger from '../../config/logger';
-class Group{
+export class Group{
     private seq : Number;
     private user_seq : Number;
     private name : String;

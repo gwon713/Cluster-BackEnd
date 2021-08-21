@@ -1,0 +1,26 @@
+[
+    {
+        "seq": 0,
+        "email": "testemail1@gmail.com",
+        "nickname": "testName1", 
+        "token": "kakaoIsdtsonrsofnolnqpinf", 
+        "social": "kakao", 
+        "file": "", 
+        "login_time": "1290371027309821", 
+        "edit_time": "1290371027309821", 
+        "join_time": "1290371027309821", 
+        "deleted": 0
+    },
+    {
+        "seq": 1,
+        "email": "testemail2@gmail.com",
+        "nickname": "testName2", 
+        "token": "kakaoIsdtsonrsofnolnqpinf", 
+        "social": "kakao", 
+        "file": "", 
+        "login_time": "1290371027309821", 
+        "edit_time": "1290371027309821", 
+        "join_time": "1290371027309821", 
+        "deleted": 0
+    }
+]

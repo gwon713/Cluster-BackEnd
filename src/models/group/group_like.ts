@@ -1,5 +1,5 @@
 import logger from '../../config/logger';
-class GroupLike {
+export class GroupLike {
     private seq : Number;
     private user_seq : Number;
     private group_seq : Number;
