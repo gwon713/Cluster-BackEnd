@@ -1,5 +1,5 @@
 import logger from '../../config/logger';
-class Code{
+export class Code{
     private code_id : String;
     private code_name : String;
     private code_etc : String;
