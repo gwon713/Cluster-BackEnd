@@ -1,16 +1,16 @@
 import { ClassData_User, ClassData_Group, ClassData_GroupLike } from '../config/dataMapping';
 
-let UserClass: any
-let GrpClass: any
-let GrpLikeClass: any
+let UserClass_all: any
+let GrpClass_all: any
+let GrpLikeClass_all: any
 
 export const creat_jsonModel = ()=>{
-    UserClass = ClassData_User();
-    GrpClass = ClassData_Group();
-    GrpLikeClass = ClassData_GroupLike();
+    UserClass_all = ClassData_User();
+    GrpClass_all = ClassData_Group();
+    GrpLikeClass_all = ClassData_GroupLike();
 }
 
-export {UserClass}
-export {GrpClass}
-export {GrpLikeClass}
+export {UserClass_all}
+export {GrpClass_all}
+export {GrpLikeClass_all}
 
