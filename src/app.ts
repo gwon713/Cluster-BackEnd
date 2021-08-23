@@ -2,9 +2,11 @@ import express from "express";
 import { connection } from "./config/database";
 import logger from './config/logger';
 import morganMiddleware from './config/morgan';
-import { ClassData_Group, ClassData_User, ClassData_GroupLike } from './config/dataMapping';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
+import CorsOptions from 'cors';
+
+import { ClassData_Group, ClassData_User, ClassData_GroupLike } from './config/dataMapping';
 import { creat_jsonModel } from './models/jsonModel';
 
 export class App{
@@ -36,5 +38,9 @@ export class App{
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
+        this.app.use(CorsOptions({
+            origin: true,
+            credentials: true
+        }));
     }
 }
