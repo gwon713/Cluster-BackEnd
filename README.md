@@ -25,13 +25,13 @@
 </a>
 
 초기 아이디어
-![cluser_idea_image](./readme_resource/DDuDo_idea.png)
+![ddudo_idea_image](./readme_resource/ddudo_idea.png)
 
 초기 기획 레이아웃
 https://ovenapp.io/project/8apxcKb9oQnChSnJm0fQiDESn9QpOJzx#s407W
 
 DB 설계
-![cluser_db_image](./readme_resource/DDuDo_db.png)
+![ddudo_db_image](./readme_resource/ddudo_db.png)
 
 API 설계 
 https://gwon713.gitbook.io/ddudo/
