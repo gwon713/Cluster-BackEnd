@@ -25,7 +25,7 @@
 </a>
 
 초기 아이디어
-![ddudo_idea_image](./readme_resource/DDuDo_idea.png)
+![ddudo_idea_image](./readme_resource/DDuDo_idea.PNG)
 
 초기 기획 레이아웃
 https://ovenapp.io/project/8apxcKb9oQnChSnJm0fQiDESn9QpOJzx#s407W
