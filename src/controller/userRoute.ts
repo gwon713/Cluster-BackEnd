@@ -10,10 +10,28 @@ UserRouter.post('/v1/user/login', (req: Request, res: Response)=>{
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     
-    const result = search_User(userEmail, userToken, userSocial);
-    res.status(200).send({
-        result : result
-    })
+    try {
+        const result = search_User(userEmail, userToken, userSocial);
+        if(result.length > 0){
+            res.status(200).send({
+                success: true,
+                result : result
+            });
+        }else{
+            res.status(400).send({
+                success: false,
+                result : null,
+                message: "Resource Null"
+            });
+        }
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Server Error"
+        })
+    }
+    
+    
 });
 
 export default UserRouter;
