@@ -1,0 +1,16 @@
+[
+    {
+        "code_id": "GROUP_CATEGORY",
+        "code_detail_id": "GROUP_CATEGORY01",
+        "code_detail_name": "스터디",
+        "code_detail_etc": "스터디",
+        "use_at": "Y"
+    },
+    {
+        "code_id": "GROUP_CATEGORY",
+        "code_detail_id": "GROUP_CATEGORY02",
+        "code_detail_name": "토이프로젝트",
+        "code_detail_etc": "토이프로젝트",
+        "use_at": "Y"
+    }
+]
