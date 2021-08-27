@@ -1,4 +1,6 @@
 import { UserClass_all } from "../models/jsonModel"
+import fs from 'fs';
+
 const userJSONData = require('../../data/user.json');
 
 console.log(userJSONData.length);
@@ -13,5 +15,5 @@ export const search_User = (userEmail: String, userToken: String, userSocial: St
 }
 
 export const add_User = (user_data: Object) => {
-    userJSONData.push(user_data);
+    const updateUserData = userJSONData.push(user_data);
 }
