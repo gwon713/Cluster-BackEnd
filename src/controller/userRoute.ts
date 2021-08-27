@@ -5,13 +5,15 @@ import { search_User } from '../repository/userRepo';
 
 const UserRouter = router;
 
-UserRouter.post('/v1/user/login', (req: Request, res: Response)=>{
+UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
+    console.log(req.query.user_social);
+    
     const userSocial: String = JSON.stringify(req.query.user_social);
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     
     try {
-        const result = search_User(userEmail, userToken, userSocial);
+        const result = await search_User(userEmail, userToken, userSocial);
         if(result.length > 0){
             res.status(200).send({
                 success: true,
@@ -30,7 +32,13 @@ UserRouter.post('/v1/user/login', (req: Request, res: Response)=>{
             message: "Server Error"
         })
     }
-    
+});
+
+UserRouter.post('/v1/user/signup', (req: Request, res: Response)=>{
+    const userSocial: String = JSON.stringify(req.query.user_social);
+    const userEmail: String = req.body.user_email;
+    const userToken: String = req.body.user_token;
+    const userNickname: String = req.body.user_nickname;
     
 });
 
