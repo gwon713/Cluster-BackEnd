@@ -7,16 +7,20 @@ const userJSONData = require('../../data/user.json');
 
 const UserRouter = router;
 
-UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
-    console.log(req.query.user_social);
-    
+UserRouter.get('/', async(req: Request, res: Response)=>{
+    res.status(200).send({
+        message: "hello"
+    });
+});
+
+UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{    
     const userSocial: String = JSON.stringify(req.query.user_social);
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     
     try {
-        const result = await search_User(userEmail, userToken, userSocial);
-        if(result.length > 0){
+        const result = await search_User(userEmail, userToken, userSocial);        
+        if(JSON.stringify(result).length > 0){
             res.status(200).send({
                 success: true,
                 result : result
@@ -28,7 +32,7 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
                 message: "Resource Null"
             });
         }
-    } catch (error) {
+    } catch (error) {      
         res.status(500).send({
             success: false,
             message: "Server Error"
