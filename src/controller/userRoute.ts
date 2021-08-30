@@ -1,9 +1,13 @@
 import express ,{Request, Response} from 'express';
 import router from '../config/route';
-import { UserClass_all } from '../models/jsonModel';
-import { search_User } from '../repository/userRepo';
 
-const userJSONData = require('../../data/user.json');
+import fs from 'fs';
+import path from "path";
+
+import { UserClass_all } from '../models/json_model/jsonModel';
+import { search_User, add_User } from '../repository/userRepo';
+import { userJSONData } from '../models/json_model/jsonModel_user';
+
 
 const UserRouter = router;
 
@@ -59,9 +63,12 @@ UserRouter.post('/v1/user/signup', (req: Request, res: Response)=>{
         join_time: dateTime,
         deleted: 0
     }
+    const fs_res_add_User = add_User(userJSON_form);
+    
     res.status(200).send({
         success: true,
-        result : userJSON_form
+        result: userJSON_form,
+        total: fs_res_add_User
     });
 });
 

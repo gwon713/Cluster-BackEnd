@@ -1,7 +1,8 @@
-import { UserClass_all } from "../models/jsonModel"
+import { UserClass_all } from "../models/json_model/jsonModel"
 import fs from 'fs';
+import path from "path";
+import { userJSONData } from "../models/json_model/jsonModel_user";
 
-const userJSONData = require('../../data/user.json');
 
 export const search_User = (userEmail: String, userToken: String, userSocial: String) => {
     return UserClass_all.find((item: { seq: Number, email: String, nickname: String, token: String, social: String, file: String, login_time: String, edit_time: String, join_time: String, deleted: Boolean })=>{
@@ -13,5 +14,13 @@ export const search_User = (userEmail: String, userToken: String, userSocial: St
 }
 
 export const add_User = (user_data: Object) => {
-    const updateUserData = userJSONData.push(user_data);
+    const user_json = userJSONData;
+    console.log(user_json);
+    console.log(user_data);
+    
+    const updateUserData = user_json.push(user_data);
+    console.log(JSON.parse(updateUserData.toString()));
+    
+    fs.writeFileSync(path.join(__dirname, '../../data/user.json'), JSON.parse(updateUserData.toString()));
+    return fs.readFileSync(path.join(__dirname, '../../data/user.json'));
 }
