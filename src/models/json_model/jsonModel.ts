@@ -1,4 +1,4 @@
-import { ClassData_User, ClassData_Group, ClassData_GroupLike } from '../config/dataMapping';
+import { ClassData_User, ClassData_Group, ClassData_GroupLike } from '../../config/dataMapping';
 
 let UserClass_all: any
 let GrpClass_all: any

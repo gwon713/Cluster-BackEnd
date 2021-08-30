@@ -7,7 +7,7 @@ import UserRouter from './controller/userRoute';
 import CorsOptions from 'cors';
 
 import { ClassData_Group, ClassData_User, ClassData_GroupLike } from './config/dataMapping';
-import { creat_jsonModel } from './models/jsonModel';
+import { creat_jsonModel } from './models/json_model/jsonModel';
 
 export class App{
     public app;
