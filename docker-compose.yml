@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services: 
   node-server:
@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432
     environment: 
-      - POSTGRES_DB=cluster
-      - POSTGRES_USER=test-user
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=ddudo
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=ddudo123
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8
