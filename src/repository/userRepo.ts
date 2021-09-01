@@ -1,7 +1,7 @@
 import { UserClass_all } from "../models/json_model/jsonModel"
 import fs from 'fs';
 import path from "path";
-import { userJSONData } from "../models/json_model/jsonModel_user";
+import { get_userJSONData } from "../models/json_model/jsonModel_user";
 
 
 export const search_User = (userEmail: String, userToken: String, userSocial: String) => {
@@ -14,13 +14,12 @@ export const search_User = (userEmail: String, userToken: String, userSocial: St
 }
 
 export const add_User = (user_data: Object) => {
-    const user_json = userJSONData;
+    const user_json: any = get_userJSONData();
     console.log(user_json);
     console.log(user_data);
     
-    const updateUserData = user_json.push(user_data);
-    console.log(JSON.parse(updateUserData.toString()));
+    const updateUserData = user_json.users.push(user_data);
     
-    fs.writeFileSync(path.join(__dirname, '../../data/user.json'), JSON.parse(updateUserData.toString()));
+    fs.writeFileSync(path.join(__dirname, '../../data/user.json'), JSON.stringify(updateUserData.toString()));
     return fs.readFileSync(path.join(__dirname, '../../data/user.json'));
 }

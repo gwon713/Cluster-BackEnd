@@ -9,7 +9,7 @@ const code_detailJSONData = require('../../data/code_detail.json');
 
 export const ClassData_User = (): User[]=>{
     let UserData : User[] = []; 
-    userJSONData.forEach((item: { seq: Number, email: String, nickname: String, token: String, social: String, file: String, login_time: String, edit_time: String, join_time: String, deleted: Boolean }) => {
+    userJSONData.users.forEach((item: { seq: Number, email: String, nickname: String, token: String, social: String, file: String, login_time: String, edit_time: String, join_time: String, deleted: Boolean }) => {
         UserData.push(new User(item.seq, item.email, item.nickname, item.token, item.social, item.file, item.login_time, item.edit_time, item.join_time, item.deleted));
     });
     return UserData;

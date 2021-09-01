@@ -6,7 +6,7 @@ import path from "path";
 
 import { UserClass_all } from '../models/json_model/jsonModel';
 import { search_User, add_User } from '../repository/userRepo';
-import { userJSONData } from '../models/json_model/jsonModel_user';
+import { get_userJSONData } from '../models/json_model/jsonModel_user';
 
 
 const UserRouter = router;
@@ -44,15 +44,18 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     }
 });
 
-UserRouter.post('/v1/user/signup', (req: Request, res: Response)=>{
+UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{
     const userSocial: String = JSON.stringify(req.query.user_social);
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     const userNickname: String = req.body.user_nickname;
     const dateTime = new Date();
 
+    const userJSONData: any = get_userJSONData();
+    console.log(userJSONData);
+    
     const userJSON_form = {
-        seq: userJSONData.length,
+        seq: userJSONData.users.length,
         email: userEmail,
         nickname: userNickname,
         token: userToken,
