@@ -49,29 +49,13 @@ UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     const userNickname: String = req.body.user_nickname;
-    const dateTime = new Date();
 
-    const userJSONData: any = get_userJSONData();
-    console.log(userJSONData);
-    
-    const userJSON_form = {
-        seq: userJSONData.users.length,
-        email: userEmail,
-        nickname: userNickname,
-        token: userToken,
-        social: userSocial,
-        file: "",
-        login_time: dateTime,
-        edit_time: dateTime,
-        join_time: dateTime,
-        deleted: 0
-    }
-    const fs_res_add_User = add_User(userJSON_form);
+    const params = [userEmail, userNickname, userToken, userSocial]
+    const res_add_User = add_User(params);
     
     res.status(200).send({
         success: true,
-        result: userJSON_form,
-        total: fs_res_add_User
+        result: res_add_User
     });
 });
 

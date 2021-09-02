@@ -5,10 +5,6 @@ import morganMiddleware from './config/morgan';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
 import CorsOptions from 'cors';
-
-import { ClassData_Group, ClassData_User, ClassData_GroupLike } from './config/dataMapping';
-import { creat_jsonModel } from './models/json_model/jsonModel';
-
 export class App{
     public app;
 
@@ -17,7 +13,6 @@ export class App{
         this.setMiddleware();
         this.setExpress();
         this.setRouter();
-        this.dataMap();
     }
 
     private setExpress() : void {
@@ -26,9 +21,6 @@ export class App{
         } catch(err){
             logger.error(err);
         }
-    }
-    private dataMap() : void {
-        creat_jsonModel();
     }
     private setMiddleware() : void {
         this.app.use(express.json());
