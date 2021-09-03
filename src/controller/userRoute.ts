@@ -7,6 +7,7 @@ import path from "path";
 import { UserClass_all } from '../models/json_model/jsonModel';
 import { search_User, add_User } from '../repository/userRepo';
 import { get_userJSONData } from '../models/json_model/jsonModel_user';
+import logger from '../config/logger';
 
 
 const UserRouter = router;
@@ -23,8 +24,9 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     const userToken: String = req.body.user_token;
     
     try {
-        const result = await search_User(userEmail, userToken, userSocial);        
-        if(JSON.stringify(result).length > 0){
+        const result: any= await search_User(userEmail, userToken, userSocial);  
+        logger.info(JSON.stringify(result));      
+        if(result != "ERROR"){
             res.status(200).send({
                 success: true,
                 result : result

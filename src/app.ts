@@ -32,6 +32,7 @@ export class App{
                     setTimeout(handleDisconnect, 2000); 
                 }else{
                     logger.info("PostgreSQL Connect");
+                    connection.query('set search_path = "ddudoSchema";');
                 }                              
             });                                          
             connection.on('error', (err: any)=>{
