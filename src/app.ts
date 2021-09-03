@@ -5,10 +5,12 @@ import morganMiddleware from './config/morgan';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
 import CorsOptions from 'cors';
+import { throws } from "assert/strict";
 export class App{
     public app;
 
     constructor(){
+        this.setDB();
         this.app = express();
         this.setMiddleware();
         this.setExpress();
@@ -21,6 +23,27 @@ export class App{
         } catch(err){
             logger.error(err);
         }
+    }
+    private setDB() : void {
+        const handleDisconnect= ()=>{
+            connection.connect((err)=>{            
+                if(err) {                            
+                    logger.error('error when connecting to db:', err);
+                    setTimeout(handleDisconnect, 2000); 
+                }else{
+                    logger.info("PostgreSQL Connect");
+                }                              
+            });                                          
+            connection.on('error', (err: any)=>{
+                logger.error('db error', err);
+                if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+                    return handleDisconnect();                      
+                } else {                                    
+                    throw err;                              
+                }
+            });
+        }
+        handleDisconnect();
     }
     private setMiddleware() : void {
         this.app.use(express.json());

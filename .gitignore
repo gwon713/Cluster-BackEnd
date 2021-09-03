@@ -1,5 +1,4 @@
 node_modules
 logs
-.env.production*
 build
 .DS_Store
