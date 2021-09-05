@@ -24,25 +24,25 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     const userToken: String = req.body.user_token;
     
     try {
-        const result: any= await search_User(userEmail, userToken, userSocial);  
-        logger.info(JSON.stringify(result));      
-        if(result != "ERROR"){
+        let result:any = await search_User(userEmail, userToken, userSocial);   
+        logger.info(result);
+        if(result.rowCount > 0){
             res.status(200).send({
                 success: true,
-                result : result
+                result : result.rows
             });
         }else{
             res.status(400).send({
                 success: false,
-                result : null,
                 message: "Resource Null"
             });
-        }
-    } catch (error) {      
+        } 
+    } catch (err) {      
+        logger.error("point 1",err);
         res.status(500).send({
             success: false,
             message: "Server Error"
-        })
+        });
     }
 });
 
@@ -52,8 +52,7 @@ UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{
     const userToken: String = req.body.user_token;
     const userNickname: String = req.body.user_nickname;
 
-    const params = [userEmail, userNickname, userToken, userSocial]
-    const res_add_User = add_User(params);
+    const res_add_User = add_User(userEmail, userNickname, userToken, userSocial);
     
     res.status(200).send({
         success: true,

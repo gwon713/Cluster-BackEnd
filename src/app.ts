@@ -26,13 +26,13 @@ export class App{
     }
     private setDB() : void {
         const handleDisconnect= ()=>{
-            connection.connect((err)=>{            
+            connection.connect(async(err)=>{            
                 if(err) {                            
                     logger.error('error when connecting to db:', err);
                     setTimeout(handleDisconnect, 2000); 
                 }else{
+                    await connection.query('set search_path = "ddudoSchema";');
                     logger.info("PostgreSQL Connect");
-                    connection.query('set search_path = "ddudoSchema";');
                 }                              
             });                                          
             connection.on('error', (err: any)=>{

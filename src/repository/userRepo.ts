@@ -8,14 +8,28 @@ import { search_User_SQL } from "../config/sql";
 
 
 export const search_User = async(userEmail: String, userToken: String, userSocial: String) => {
-    // return UserClass_all.find((item: { seq: Number, email: String, nickname: String, token: String, social: String, file: String, login_time: String, edit_time: String, join_time: String, deleted: Boolean })=>{
-    //     if(item.email == userEmail&&item.token==userToken){
-    //         console.log(item);     
-    //         return item;
-    //     }
-    // });
     const postdb = await connection.connect();
-    const params = [userEmail, userToken, userSocial];
+    // const params = [userEmail, userToken, userSocial];
+    const params = ['test1@gmail.com', 'kakaoIsdtsonrsofnolnqpinf','kakao'];
+    try {        
+        return postdb.query(search_User_SQL, params, (err, res)=>{
+            if(err){
+                logger.error("sql point 1",err);
+                throw err;
+            }
+            return res.rows;
+        });
+    } catch (err) {
+        logger.error("sql point 2", err);
+        throw err;
+    } finally {
+        postdb.release();
+    }
+}
+
+export const add_User = async(userEmail: String, userNickname: String, userToken: String, userSocial: String) => {
+    const postdb = await connection.connect();
+    const params = [userEmail, userNickname, userToken, userSocial]
     try {
         const result = await postdb.query(search_User_SQL, params); // select * from "ddudoSchema"."user" where user_email = ? and user_token = ? and user_social = ? and user_deleted = false ;
         logger.info(result.rows);
@@ -26,15 +40,4 @@ export const search_User = async(userEmail: String, userToken: String, userSocia
     } finally {
         await postdb.release();
     }
-}
-
-export const add_User = (user_data: Object) => {
-    const user_json: any = get_userJSONData();
-    console.log(user_json);
-    console.log(user_data);
-    
-    const updateUserData = user_json.users.push(user_data);
-    
-    fs.writeFileSync(path.join(__dirname, '../../data/user.json'), JSON.stringify(updateUserData.toString()));
-    return fs.readFileSync(path.join(__dirname, '../../data/user.json'));
 }
