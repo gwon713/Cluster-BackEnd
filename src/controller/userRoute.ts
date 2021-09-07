@@ -24,13 +24,13 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     const userToken: String = req.body.user_token;
     
     try {
-        let result:any = await search_User(userEmail, userToken, userSocial);
-        result.map();
-        logger.info(result);
-        if(result.rowCount > 0){
+        const result:any = await search_User(userEmail, userToken, userSocial);
+        console.log(result);
+        
+        if(result.length > 0){
             res.status(200).send({
                 success: true,
-                result : result.rows
+                result : result
             });
         }else{
             res.status(400).send({

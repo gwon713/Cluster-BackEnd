@@ -5,7 +5,6 @@ import morganMiddleware from './config/morgan';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
 import CorsOptions from 'cors';
-import { throws } from "assert/strict";
 export class App{
     public app;
 

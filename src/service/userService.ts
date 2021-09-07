@@ -5,20 +5,23 @@ import { get_userJSONData } from "../models/json_model/jsonModel_user";
 import { connection } from '../config/database';
 import logger from '../config/logger';
 import { search_User_SQL } from "../config/sql";
-
+import { resolve } from "path/posix";
+import { rejects } from "assert";
 
 export const search_User = async(userEmail: String, userToken: String, userSocial: String) => {
     const postdb = await connection.connect();
-    // const params = [userEmail, userToken, userSocial];
-    const params = ['test1@gmail.com', 'kakaoIsdtsonrsofnolnqpinf','kakao'];
+    const params = [userEmail, userToken, userSocial];
+    // const params = ['test2@gmail.com', 'kakaoIsdtsadasdadsnqpinf','kakao'];
     try {        
-        return postdb.query(search_User_SQL, params, (err, res)=>{
-            if(err){
-                logger.error("sql point 1",err);
-                throw err;
-            }
-            return res.rows;
-        });
+        return new Promise((resolve, rejects)=>{
+            postdb.query(search_User_SQL, params, (err, res)=>{
+                if(err){
+                    logger.error("sql point 1",err);
+                    rejects(err);
+                }
+                resolve(res.rows);
+            });
+        })
     } catch (err) {
         logger.error("sql point 2", err);
         throw err;
