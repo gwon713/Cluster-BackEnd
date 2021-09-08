@@ -10,20 +10,18 @@ import { rejects } from "assert";
 
 export const search_User = async(userEmail: String, userToken: String, userSocial: String) => {
     const postdb = await connection.connect();
-    const params = [userEmail, userToken, userSocial];
-    // const params = ['test2@gmail.com', 'kakaoIsdtsadasdadsnqpinf','kakao'];
+    // const params = [userEmail, userToken, userSocial];
+    const params = ['test2@gmail.com', 'kakaoIsdtsadasdadsnqpinf','kakao'];
     try {        
         return new Promise((resolve, rejects)=>{
             postdb.query(search_User_SQL, params, (err, res)=>{
                 if(err){
-                    logger.error("sql point 1",err);
                     rejects(err);
                 }
-                resolve(res.rows);
+                resolve(res);
             });
         })
     } catch (err) {
-        logger.error("sql point 2", err);
         throw err;
     } finally {
         postdb.release();

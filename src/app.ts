@@ -31,6 +31,8 @@ export class App{
                     setTimeout(handleDisconnect, 2000); 
                 }else{
                     await connection.query('set search_path = "ddudoSchema";');
+                    const search_path = await connection.query('show search_path;')
+                    console.log(search_path.rows);
                     logger.info("PostgreSQL Connect");
                 }                              
             });                                          

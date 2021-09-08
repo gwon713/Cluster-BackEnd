@@ -25,12 +25,12 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     
     try {
         const result:any = await search_User(userEmail, userToken, userSocial);
-        console.log(result);
-        
-        if(result.length > 0){
+        // console.log(result.rows);
+        // console.log(result.rowCount);
+        if(result.rowCount > 0){
             res.status(200).send({
                 success: true,
-                result : result
+                result : result.rows
             });
         }else{
             res.status(400).send({
@@ -39,7 +39,7 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
             });
         } 
     } catch (err) {      
-        logger.error("point 1",err);
+        logger.error("/v1/user/login",err);
         res.status(500).send({
             success: false,
             message: "Server Error"
