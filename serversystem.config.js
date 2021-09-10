@@ -5,7 +5,7 @@ module.exports = {
             "NODE_ENV": "dev"
         },
         script: './build/start.js',
-        instances: 0,
+        instances: 1,
         exec_mode: 'cluster',
         wait_ready: true,
         listen_timeout: 50000,
