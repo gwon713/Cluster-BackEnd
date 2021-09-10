@@ -7,7 +7,7 @@ const combined = ':remote-addr - :remote-user ":method :url HTTP/:http-version" 
 const morganFormat = process.env.NODE_ENV !== "production" ? 'dev' : combined; // NOTE: morgan 출력 형태
 
 const stream: StreamOptions = { // morgan log 출력 설정 winston logger 사용
-  write: (message) => logger.info(message),
+    write: (message) => logger.info(message),
 };
 
 
