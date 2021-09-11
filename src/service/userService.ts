@@ -1,12 +1,8 @@
-import { UserClass_all } from "../models/json_model/jsonModel"
 import fs from 'fs';
 import path from "path";
-import { get_userJSONData } from "../models/json_model/jsonModel_user";
 import { connection } from '../config/database';
 import logger from '../config/logger';
 import { search_User_SQL } from "../config/sql";
-import { resolve } from "path/posix";
-import { rejects } from "assert";
 
 export const search_User = async(userEmail: String, userToken: String, userSocial: String) => {
     const postdb = await connection.connect();

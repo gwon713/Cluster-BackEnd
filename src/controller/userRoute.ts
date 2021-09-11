@@ -4,9 +4,7 @@ import router from '../config/route';
 import fs from 'fs';
 import path from "path";
 
-import { UserClass_all } from '../models/json_model/jsonModel';
 import { search_User, add_User } from '../service/userService';
-import { get_userJSONData } from '../models/json_model/jsonModel_user';
 import logger from '../config/logger';
 
 
