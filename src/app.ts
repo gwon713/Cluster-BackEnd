@@ -30,8 +30,8 @@ export class App{
                     logger.error('error when connecting to db:', err);
                     setTimeout(handleDisconnect, 2000); 
                 }else{
-                    await connection.query('set search_path = ddudo_schema;');
-                    const search_path = await connection.query('show search_path;')
+                    // await connection.query('set search_path = public;');
+                    const search_path = await connection.query("show search_path")
                     console.log(search_path.rows);
                     logger.info("PostgreSQL Connect");
                 }                              
