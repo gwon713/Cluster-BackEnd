@@ -47,7 +47,7 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
 });
 
 UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{
-    const userSocial: String = JSON.stringify(req.query.user_social);
+    const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     const userNickname: String = req.body.user_nickname;
