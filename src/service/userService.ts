@@ -23,9 +23,9 @@ export const search_User = async(userEmail: String, userToken: String, userSocia
     }
 }
 
-export const add_User = async(userEmail: String, userNickname: String, userToken: String, userSocial: String) => {
+export const add_User = async(userEmail: String, userNickname: String, userToken: String, userSocial: String): Promise<any> => {
     const postdb = await connection.connect();
-    const params = [userEmail, userNickname, userToken, userSocial, null]
+    const params = [userEmail, userNickname, userToken, userSocial, null];
     try {
         return new Promise((resolve, rejects)=>{
             postdb.query(add_User_SQL, params, (err, res)=>{
