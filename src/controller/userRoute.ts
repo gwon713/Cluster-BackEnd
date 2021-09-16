@@ -9,9 +9,9 @@ import logger from '../config/logger';
 
 const UserRouter = router;
 
-UserRouter.get('/', async(req: Request, res: Response)=>{
+UserRouter.get('/user', async(req: Request, res: Response)=>{
     res.status(200).send({
-        message: "hello"
+        message: "UserRouter hello"
     });
 });
 
