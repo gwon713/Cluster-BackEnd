@@ -45,6 +45,10 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{
     }
 });
 
+UserRouter.post('/v1/user/logout', async(req: Request, res: Response)=>{
+
+});
+
 UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
@@ -102,6 +106,10 @@ UserRouter.get('/v1/user/profile', async(req: Request, res: Response)=>{
             message: "Server Error"
         });
     }
+});
+
+UserRouter.get('/v1/user/nickname', async(req: Request, res: Response)=>{
+
 });
 
 export default UserRouter;
