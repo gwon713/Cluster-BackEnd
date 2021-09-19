@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from "path";
 import { connection } from '../config/database';
 import logger from '../config/logger';
-import { search_user_SQL, add_user_SQL } from './sql';
+import { search_user_SQL, add_user_SQL, update_user_profile_SQL } from './sql';
 
 export const search_user = async(userEmail: String, userToken: String, userSocial: String): Promise<any> => { // DB 유저 조회
     const postdb = await connection.connect();
@@ -42,12 +42,12 @@ export const add_user = async(userEmail: String, userNickname: String, userToken
     }
 }
 
-export const user_profile_update = async(userEmail: String, userToken: String, userSocial: String): Promise<any> => { // DB 프로필 업데이트
+export const update_user_profile = async(userEmail: String, userToken: String, userSocial: String, userNickname: String): Promise<any> => { // DB 프로필 업데이트
     const postdb = await connection.connect();
-    const params = [userEmail, userToken, userSocial];
+    const params = [userEmail, userToken, userSocial, userNickname];
     try {        
         return new Promise((resolve, rejects)=>{
-            postdb.query(search_user_SQL, params, (err, res)=>{
+            postdb.query(update_user_profile_SQL, params, (err, res)=>{
                 if(err){
                     rejects(err);
                 }

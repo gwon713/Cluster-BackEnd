@@ -4,7 +4,7 @@ import router from '../config/route';
 import fs from 'fs';
 import path from "path";
 
-import { search_user, add_user } from '../service/userService';
+import { search_user, add_user, update_user_profile } from '../service/userService';
 import logger from '../config/logger';
 
 const UserRouter = router;
@@ -118,9 +118,10 @@ UserRouter.put('/v1/user/profile/edit', async(req: Request, res: Response)=>{ //
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
+    const userNickname: String = req.body.user_nickname;
     
     try {
-        const result = await search_user(userEmail, userToken, userSocial);
+        const result = await update_user_profile(userEmail, userToken, userSocial, userNickname);
         // console.log(result.rows);
         // console.log(result.rowCount);
         if(result.rowCount > 0){
