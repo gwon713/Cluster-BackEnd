@@ -44,7 +44,7 @@ export const add_user = async(userEmail: String, userNickname: String, userToken
 
 export const update_user_profile = async(userEmail: String, userToken: String, userSocial: String, userNickname: String): Promise<any> => { // DB 프로필 업데이트
     const postdb = await connection.connect();
-    const params = [userEmail, userToken, userSocial, userNickname];
+    const params = [userNickname, userEmail, userToken, userSocial];
     try {        
         return new Promise((resolve, rejects)=>{
             postdb.query(update_user_profile_SQL, params, (err, res)=>{
