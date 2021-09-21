@@ -1,4 +1,4 @@
-import express ,{Request, Response} from 'express';
+import express ,{Request, Response, NextFunction} from 'express';
 import router from '../config/route';
 
 import fs from 'fs';
@@ -15,7 +15,7 @@ UserRouter.get('/user', async(req: Request, res: Response)=>{
     });
 });
 
-UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{ // 로그인
+UserRouter.post('/v1/user/login', async(req: Request, res: Response, next: NextFunction)=>{ // 로그인
     // const userSocial: String = JSON.stringify(req.query.user_social).replace(/\"/g,'');
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
@@ -45,16 +45,16 @@ UserRouter.post('/v1/user/login', async(req: Request, res: Response)=>{ // 로�
     }
 });
 
-UserRouter.post('/v1/user/logout', async(req: Request, res: Response)=>{ // 로그아웃 세션 destroy
+UserRouter.post('/v1/user/logout', async(req: Request, res: Response, next: NextFunction)=>{ // 로그아웃 세션 destroy
 
 });
 
-UserRouter.get('/v1/user/nickname', async(req: Request, res: Response)=>{ // 닉네임 중복 체크
+UserRouter.get('/v1/user/nickname', async(req: Request, res: Response, next: NextFunction)=>{ // 닉네임 중복 체크
 
 });
 
 
-UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{ // 회원가입
+UserRouter.post('/v1/user/signup', async (req: Request, res: Response, next: NextFunction)=>{ // 회원가입
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
@@ -83,7 +83,7 @@ UserRouter.post('/v1/user/signup', async (req: Request, res: Response)=>{ // 회
     }
 });
 
-UserRouter.get('/v1/user/profile', async(req: Request, res: Response)=>{ // 세션에서 프로필 정보 가져오기
+UserRouter.get('/v1/user/profile', async(req: Request, res: Response, next: NextFunction)=>{ // 세션에서 프로필 정보 가져오기
     // const userSocial: String = JSON.stringify(req.query.user_social).replace(/\"/g,'');
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
@@ -113,7 +113,7 @@ UserRouter.get('/v1/user/profile', async(req: Request, res: Response)=>{ // 세�
     }
 });
 
-UserRouter.put('/v1/user/profile/edit', async(req: Request, res: Response)=>{ // 프로필 정보수정 세션에 새로운 정보 업데이트
+UserRouter.put('/v1/user/profile/edit', async(req: Request, res: Response, next: NextFunction)=>{ // 프로필 정보수정 세션에 새로운 정보 업데이트
     // const userSocial: String = JSON.stringify(req.query.user_social).replace(/\"/g,'');
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
