@@ -1,5 +1,6 @@
 import passport from 'passport';
 import passportLocal from 'passport-local';
+import { search_user } from '../service/userService';
 
 const LocalStrategy = passportLocal.Strategy;
 
@@ -11,7 +12,7 @@ class Passport {
             passwordField: 'pw'
         },
         (id, pw, done) => {
-            return User.findOne({
+            return search_user({
                 where: {
                     id: id,
                     pw: pw
