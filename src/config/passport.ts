@@ -14,10 +14,6 @@ class Passport {
         },
         (id, pw, done) => {
             return search_user({
-                where: {
-                    id: id,
-                    pw: pw
-                }
             })
             .then(user => {
                 if(!user) {
