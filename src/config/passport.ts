@@ -9,8 +9,8 @@ class Passport {
     public config = () => {
         // Local Strategy
         passport.use(new LocalStrategy({
-            usernameField: 'id',
-            passwordField: 'pw'
+            usernameField: 'userEmail',
+            passwordField: 'userToken'
         },
         (id, pw, done) => {
             return search_user({
