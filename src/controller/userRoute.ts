@@ -55,6 +55,7 @@ UserRouter.get('/v1/user/nickname', async(req: Request, res: Response, next: Nex
 
 
 UserRouter.post('/v1/user/signup', async (req: Request, res: Response, next: NextFunction)=>{ // 회원가입
+    res.header("Access-Control-Allow-Origin", "*");
     const userSocial: String = req.query.user_social as String;
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
@@ -62,7 +63,7 @@ UserRouter.post('/v1/user/signup', async (req: Request, res: Response, next: Nex
     //logger.info('POST /v1/user/signup userSocial:', userSocial, '/ userEmail: ', userEmail, '/ userToken: ', userToken, '/ userNickname: ', userNickname);
     try {
         const result = await add_user(userEmail, userNickname, userToken, userSocial);
-        console.log(result);
+        // console.log(result);
         if(result.rowCount > 0){
             res.status(200).send({
                 success: true,
