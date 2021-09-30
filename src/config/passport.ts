@@ -1,4 +1,4 @@
-import { NextFunction } from 'express';
+/*import { NextFunction } from 'express';
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import { search_user } from '../service/userService';
@@ -42,4 +42,4 @@ class Passport {
     };
 }
 
-export default Passport;
+export default Passport;*/

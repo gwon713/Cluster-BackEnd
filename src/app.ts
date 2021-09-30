@@ -6,11 +6,11 @@ import router from './config/route';
 import UserRouter from './controller/userRoute';
 import CorsOptions from 'cors';
 import session from 'express-session';
-import passport from "passport";
-import Passport from "./config/passport";
+// import passport from "passport";
+// import Passport from "./config/passport";
 export class App{
     public app: express.Application;
-    public passportConfig: Passport = new Passport();
+    // public passportConfig: Passport = new Passport();
 
     constructor(){
         this.setDB();
