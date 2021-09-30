@@ -59,7 +59,7 @@ UserRouter.post('/v1/user/signup', async (req: Request, res: Response, next: Nex
     const userEmail: String = req.body.user_email;
     const userToken: String = req.body.user_token;
     const userNickname: String = req.body.user_nickname;
-    logger.info('POST /v1/user/signup userSocial:', userSocial, '/ userEmail: ', userEmail, '/ userToken: ', userToken, '/ userNickname: ', userNickname);
+    //logger.info('POST /v1/user/signup userSocial:', userSocial, '/ userEmail: ', userEmail, '/ userToken: ', userToken, '/ userNickname: ', userNickname);
     try {
         const result = await add_user(userEmail, userNickname, userToken, userSocial);
         console.log(result);

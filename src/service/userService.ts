@@ -26,6 +26,7 @@ export const search_user = async(userEmail: String, userToken: String, userSocia
 export const add_user = async(userEmail: String, userNickname: String, userToken: String, userSocial: String): Promise<any> => { // DB 유저 추가
     const postdb = await connection.connect();
     const params = [userEmail, userNickname, userToken, userSocial];
+    logger.info('POST /v1/user/signup'+params);
     try {
         return new Promise((resolve, rejects)=>{
             postdb.query(add_user_SQL, params, (err, res)=>{
