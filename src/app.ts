@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import { connection } from "./config/database";
 import logger from './config/logger';
 import morganMiddleware from './config/morgan';
@@ -63,5 +63,11 @@ export class App{
         this.app.use(router);
         this.app.use(UserRouter);
         this.app.use(cors(this.options));
+        this.app.use((req: Request, res: Response, next: NextFunction)=>{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "*");
+            res.header("Access-Control-Allow-Methods", "*");
+            next();
+        });
     }
 }
