@@ -59,9 +59,10 @@ export class App{
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
-        this.app.use(CorsOptions({
-            // origin: true,
-            // credentials: true
-        }));
+        // this.app.use(CorsOptions({
+        //     origin: true,
+        //     credentials: true
+        // }));
+        this.app.use(CorsOptions());
     }
 }
