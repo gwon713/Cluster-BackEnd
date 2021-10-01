@@ -4,14 +4,17 @@ import logger from './config/logger';
 import morganMiddleware from './config/morgan';
 import router from './config/route';
 import UserRouter from './controller/userRoute';
-import CorsOptions from 'cors';
+import cors from 'cors';
 import session from 'express-session';
 // import passport from "passport";
 // import Passport from "./config/passport";
+
 export class App{
     public app: express.Application;
     // public passportConfig: Passport = new Passport();
-
+    private options: cors.CorsOptions = {
+        origin: true
+    };
     constructor(){
         this.setDB();
         this.app = express();
@@ -59,10 +62,6 @@ export class App{
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
-        // this.app.use(CorsOptions({
-        //     origin: true,
-        //     credentials: true
-        // }));
-        this.app.use(CorsOptions());
+        this.app.use(cors(this.options));
     }
 }
