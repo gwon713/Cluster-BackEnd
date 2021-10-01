@@ -65,8 +65,8 @@ export class App{
         this.app.use(cors(this.options));
         this.app.use((req: Request, res: Response, next: NextFunction)=>{
             res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "X-Requested-With");
-            res.header("Access-Control-Allow-Methods", "*");
+            res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, X-Requested-With");
+            res.header("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS");
             next();
         });
     }
