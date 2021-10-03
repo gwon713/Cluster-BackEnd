@@ -13,7 +13,7 @@ export class App{
     public app: express.Application;
     // public passportConfig: Passport = new Passport();
     private options: cors.CorsOptions = {
-        origin: true
+        // origin: true
     };
     constructor(){
         this.setDB();
