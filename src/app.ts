@@ -18,9 +18,9 @@ export class App{
     constructor(){
         this.setDB();
         this.app = express();
-        this.setRouter();
         this.setMiddleware();
-        this.setExpress();
+        this.setRouter();
+        // this.setExpress();
     }
 
     private setExpress() : void {
@@ -57,17 +57,17 @@ export class App{
     private setMiddleware() : void {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended:false }));
-        this.app.use(morganMiddleware);
-    }
-    private setRouter(): void{
-        this.app.use(router);
-        this.app.use(UserRouter);
-        this.app.use(cors);
+        this.app.use(cors());
         this.app.use((req: Request, res: Response, next: NextFunction)=>{
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, X-Requested-With");
             res.header("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS");
             next();
         });
+        this.app.use(morganMiddleware);
+    }
+    private setRouter(): void{
+        this.app.use(router);
+        this.app.use(UserRouter);
     }
 }
