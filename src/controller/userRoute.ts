@@ -144,5 +144,64 @@ UserRouter.put('/v1/user/profile/edit', async(req: Request, res: Response, next:
     }
 });
 
+UserRouter.get('/test', async(req: Request, res: Response, next: NextFunction)=>{ // 세션에서 프로필 정보 가져오기
+    // const userSocial: String = JSON.stringify(req.query.user_social).replace(/\"/g,'');
+    const userSocial: String = req.query.user_social as String;
+    const userEmail: String = req.body.user_email;
+    const userToken: String = req.body.user_token;
+    
+    try {
+        const result = await search_user(userEmail, userToken, userSocial);
+        // console.log(result.rows);
+        // console.log(result.rowCount);
+        if(result.rowCount > 0){
+            res.status(200).send({
+                success: true,
+                result : result.rows
+            });
+        }else{
+            res.status(400).send({
+                success: false,
+                message: "Resource Null"
+            });
+        } 
+    } catch (err) {      
+        logger.error("GET /test",err);
+        res.status(500).send({
+            success: false,
+            message: "Server Error"
+        });
+    }
+});
+
+UserRouter.post('/test', async(req: Request, res: Response, next: NextFunction)=>{ // 세션에서 프로필 정보 가져오기
+    // const userSocial: String = JSON.stringify(req.query.user_social).replace(/\"/g,'');
+    const userSocial: String = req.query.user_social as String;
+    const userEmail: String = req.body.user_email;
+    const userToken: String = req.body.user_token;
+    
+    try {
+        const result = await search_user(userEmail, userToken, userSocial);
+        // console.log(result.rows);
+        // console.log(result.rowCount);
+        if(result.rowCount > 0){
+            res.status(200).send({
+                success: true,
+                result : result.rows
+            });
+        }else{
+            res.status(400).send({
+                success: false,
+                message: "Resource Null"
+            });
+        } 
+    } catch (err) {      
+        logger.error("POST /test",err);
+        res.status(500).send({
+            success: false,
+            message: "Server Error"
+        });
+    }
+});
 
 export default UserRouter;
