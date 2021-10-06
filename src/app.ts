@@ -73,6 +73,7 @@ export class App{
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
-        // this.app.options("*", cors(this.options),());
+        const corsConfig = cors(this.options)
+        this.app.options("*", corsConfig);
     }
 }
