@@ -23,7 +23,7 @@ export class App{
         credentials: true,
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
         origin: "*",
-        preflightContinue: false,
+        preflightContinue: true,
     };
     constructor(){
         this.setDB();
