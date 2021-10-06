@@ -18,9 +18,9 @@ export class App{
     constructor(){
         this.setDB();
         this.app = express();
+        this.setRouter();
         this.setMiddleware();
         this.setExpress();
-        this.setRouter();
     }
 
     private setExpress() : void {
@@ -62,7 +62,7 @@ export class App{
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
-        this.app.use(cors());
+        this.app.use(cors);
         this.app.use((req: Request, res: Response, next: NextFunction)=>{
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, X-Requested-With");
