@@ -75,5 +75,8 @@ export class App{
         this.app.use(UserRouter);
         const corsConfig = cors(this.options)
         this.app.options("*", corsConfig);
+        this.app.use((req: Request, res: Response, next: NextFunction)=>{
+
+        })
     }
 }
