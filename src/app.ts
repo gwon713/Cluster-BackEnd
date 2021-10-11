@@ -67,16 +67,34 @@ export class App{
     private setMiddleware() : void {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended:false }));
+        // /*
+        this.app.options("*",(req: Request, res: Response, next: NextFunction)=>{
+            console.log("http request method:"+req.method);
+            
+            if(req.method == "OPTIONS"){
+                console.log("continue http request method:"+req.method);
+                return next();
+            }
+        });
+        // */
         this.app.use(cors(this.options));
+        /*
+        this.app.use((req: Request, res: Response, next: NextFunction)=>{
+            console.log("http request method:"+req.method);
+            
+            if(req.method == "OPTIONS"){
+                console.log("continue http request method:"+req.method);
+                return next();
+            }
+        });
+        */
+        
         this.app.use(morganMiddleware);
     }
     private setRouter(): void{
         this.app.use(router);
         this.app.use(UserRouter);
         const corsConfig = cors(this.options)
-        this.app.options("*", corsConfig);
-        this.app.use((req: Request, res: Response, next: NextFunction)=>{
-
-        })
+        // this.app.options("*", corsConfig);
     }
 }
