@@ -24,6 +24,7 @@ export class App{
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
         origin: "*",
         preflightContinue: true,
+        maxAge: 84600
     };
     constructor(){
         this.setDB();
@@ -77,7 +78,9 @@ export class App{
             }
         });
         // */
-        this.app.use(cors(this.options));
+        this.app.use((req: Request, res: Response, next: NextFunction)=>{
+            next();
+        }, cors(this.options));
         /*
         this.app.use((req: Request, res: Response, next: NextFunction)=>{
             console.log("http request method:"+req.method);
