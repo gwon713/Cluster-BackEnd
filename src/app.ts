@@ -13,13 +13,14 @@ export class App{
     public app: express.Application;
     // public passportConfig: Passport = new Passport();
     private options: cors.CorsOptions = {
-        allowedHeaders: [
-            'Origin',
-            'X-Requested-With',
-            'Content-Type',
-            'Accept',
-            'X-Access-Token',
-        ],
+        allowedHeaders: "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+        // [
+        //     'Origin',
+        //     'X-Requested-With',
+        //     'Content-Type',
+        //     'Accept',
+        //     'X-Access-Token',
+        // ],
         credentials: true,
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
         origin: "*",
