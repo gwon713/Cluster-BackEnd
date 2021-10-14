@@ -13,7 +13,8 @@ export class App{
     public app: express.Application;
     // public passportConfig: Passport = new Passport();
     private options: cors.CorsOptions = {
-        allowedHeaders: "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+        allowedHeaders: 
+        "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
         // [
         //     'Origin',
         //     'X-Requested-With',
@@ -24,8 +25,7 @@ export class App{
         credentials: true,
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
         origin: "*",
-        preflightContinue: true,
-        maxAge: 84600
+        preflightContinue: false
     };
     constructor(){
         this.setDB();
@@ -34,7 +34,6 @@ export class App{
         this.setRouter();
         // this.setExpress();
     }
-
     private setExpress() : void {
         try {
             
