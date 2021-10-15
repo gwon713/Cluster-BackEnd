@@ -14,7 +14,27 @@ GroupRouter.get('/group', async(req: Request, res: Response, next: NextFunction)
 });
 
 GroupRouter.get('/v1/groups', async(req: Request, res: Response, next: NextFunction)=>{
-
+    try {
+        const result: any = null;
+        // console.log(result);
+        if(result.rowCount > 0){
+            res.status(200).send({
+                success: true,
+                result : result.rows
+            });
+        }else{
+            res.status(400).send({
+                success: false,
+                message: "Resource Null"
+            });
+        } 
+    } catch (err) {      
+        logger.error("GET /v1/groups",err);
+        res.status(500).send({
+            success: false,
+            message: "Server Error"
+        });
+    }
 });
 
 GroupRouter.get('/v1/group/detail', async(req: Request, res: Response, next: NextFunction)=>{
