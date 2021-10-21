@@ -9,6 +9,12 @@ import logger from '../config/logger';
 
 const UserRouter = router;
 
+UserRouter.post('/test', async(req: Request, res: Response)=>{
+    res.status(200).send({
+        message: req.body.data
+    });
+});
+
 UserRouter.get('/user', async(req: Request, res: Response)=>{
     res.status(200).send({
         message: "UserRouter hello"
